@@ -1,27 +1,23 @@
+/**
+ * Напишите реализацию собственного прописа
+ */
+
 class OwnPromise {
-    data;
     thenStack = [];
 
     constructor(fn){
-        fn(this.resolve.bind(this));
+        fn && fn(this.resolve.bind(this));
     }
 
     resolve(data){
-        this.data = data;
-
         this.thenStack.forEach(({fn, pr}) => {
             const res = fn(data);
-            pr._force(res);
-
+            pr.resolve(res);
         })
     }
 
-    _force(data){
-        this.resolve(data);
-    }
-
     then(fn){
-        const pr = new OwnPromise((resolve) =>  {});
+        const pr = new OwnPromise();
 
         this.thenStack.push({
             fn,
@@ -31,7 +27,6 @@ class OwnPromise {
         return pr;
     }
 }
-
 
 const p2 = new OwnPromise((resolve) => {
     setTimeout(() => {
