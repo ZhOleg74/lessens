@@ -1,17 +1,21 @@
 /**
- * Напишите реализацию собственного прописа
+ * Напишите реализацию собственного промиса
  */
 
 class OwnPromise {
     thenStack = [];
+    status = 0;
+    data;
 
     constructor(fn){
         fn && fn(this.resolve.bind(this));
     }
 
     resolve(data){
+        this.status = 1;
+        this.data = data;
         this.thenStack.forEach(({fn, pr}) => {
-            const res = fn(data);
+            const res = fn(this.data);
             pr.resolve(res);
         })
     }
@@ -19,20 +23,27 @@ class OwnPromise {
     then(fn){
         const pr = new OwnPromise();
 
-        this.thenStack.push({
-            fn,
-            pr
-        });
+        if(this.status === 1){
+            const res = fn(this.data);
+            pr.resolve(res);
+        } else {
+            this.thenStack.push({
+                fn,
+                pr
+            });
+        }
 
         return pr;
     }
 }
 
-const p2 = new OwnPromise((resolve) => {
+
+ const p2 = new OwnPromise((resolve) => {
     setTimeout(() => {
         resolve(1);
     }, 1000)
 });
+
 
 p2.then((value) => {
     console.log(value); // 1
