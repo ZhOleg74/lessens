@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF=8">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="" method="get">
+            <fieldset>
+                <legend>Оформление заказа</legend>
+                <h4>Введите контактные данные и адрес доставки:</h4>
+                <p>
+                    Контактное лицо <input type="text" name="nameAndSurname" placeholder="Введите имя и фамилию">
+                    Ваш адрес: <input type="text" name="adress" placeholder="Введите ваш адрес">
+                </p>
+                <p>
+                    Телефон: <input type="tel" name="telefon" placeholder="Введите ваш телефон">
+                    E-mail: <input type="email" name="e-mail" placeholder="Введите ваш E-mail">
+                </p>
+                <h4>Выберите дату и время доставки:</h4>
+                <p>
+                    Дата доставки: <input type="date" name="date">
+                    Время: <input type="time" name="time">
+                </p>
+                <h4>Оплата:</h4>         
+                <p>
+                    <label><input type="radio" name="change" value="cash"> Наличными </label>
+                    <label><input type="radio" name="change" value="bank card"> По карте </label>  
+                </p>
+                <h4>Прочие параметры:</h4>
+                <p>
+                    <label><input type="checkbox" name="params[]" value="domofon"> Домофон</label>
+                    <label><input type="checkbox" name="params[]" value="nozvonok"> Неисправен звонок</label>
+                    <label><input type="checkbox" name="inf3" value="dog"> Собака во дворе</label>
+                    <label><input type="checkbox" name="inf4" value="backbild"> Вход с заднего фасада</label>
+                    <label><input type="checkbox" name="inf5" value="frontbild"> Вход с торца здания </label>
+                </p>
+                <input type="submit" value="подтвердить">
+            </fieldset>
+        </form>
+    </body>
+</html>
