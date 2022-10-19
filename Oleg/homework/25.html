@@ -1,0 +1,62 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="" method="get">
+            <fieldset>
+                <legend>Размещение вакансии</legend>
+                <p>
+                    <label><b>Тип вакансии:</b> 
+                        <input checked type="radio" name="vacancy" value="on">Открытая
+                        <input type="radio" name="vacancy" value="off">Закрытая
+                    </label>
+                </p>
+                <p>
+                    <label><b>Название вакансии:</b> <input type="text" name="namevacancy" 
+                        placeholder="Введите название вакансии"> 
+                </p>
+                <p>
+                    <label><b>Профессиональная область:</b>
+                        <select>
+                            <optgroup label="Банки, инвистиции, лизинг">
+                                <option value="name0" title="group A.0"></option>
+                                <option value="name1" title="group A.1">Валютный контроль</option>
+                                <option value="name2" title="group A.2">Кредиты</option>
+                                <option disabled value="name3" title="group A.3">Безопасность</option>
+                            </optgroup>
+                            <optgroup label="Административный персонал">
+                                <option value="name3" title="group B.1">Архивист</option>
+                                <option value="name4" title="group B.2">Водитель</option>
+                                <option disabled value="name5" title="group B.3">Вечерний секретарь</option>
+                            </optgroup>
+                            <optgroup disabled label="Высший менеджмент">
+                                <option value="name6" title="group С.1" >Директор</option>
+                                <option value="name7" title="group С.2" >Главный бухгалтер</option>
+                            </optgroup>   
+                        </select>
+    
+                    </label>
+                </p>
+                <p>
+                    <label><b>Предпологаемый уровень дохода:</b>
+                        <input type="number" name="dohod" min="1" max="1000" placeholder="уровень дохода">
+                        <select>
+                            <option name="text" value="rub" title="group1" >RUB</option>
+                            <option name="text" value="dol" title="group2" >USD</option>
+                            <option name="text" value="eur" title="group3" >EUR</option>
+                        </select> 
+                </p>
+                
+                <h4>О вакансии:</h4>
+                <textarea name="text" placeholder="Введите информацию о вакансии"></textarea>
+                    <br>
+                    <input type="submit" name="params[]" value="Разместить">
+            </fieldset>
+        </form>
+        
+
+    </body>
+</html>
